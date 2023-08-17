@@ -12,6 +12,7 @@ public class Demo1Application {
 		ConfigurableApplicationContext applicationContext= SpringApplication.run(Demo1Application.class, args);
 		StringClass component=applicationContext.getBean(StringClass.class);
 		//System.out.println("Hello World");
+		System.out.println(component.getHelloWorld());
 	}
 
 }
