@@ -1,7 +1,9 @@
 package com.demo1.demo1;
 
+import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -35,5 +37,12 @@ public class StudentController {
 
     }
 
+    //request param ---rest api to handle query parameters
+    //http:localhost:8080/student?firstName=tharindu&lastName=perera
+
+    @GetMapping("/student-test" )
+    public Student getstudentQueryParam(@RequestParam(name="firstName") String firstName,@RequestParam(name="lastName") String lastName ){
+        return new Student(firstName,lastName);
+    }
 
 }
