@@ -1,6 +1,7 @@
 package com.demo1.demo1;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -25,5 +26,14 @@ public class StudentController {
 
 
     }
+
+    //@path variable
+    //http:localhost:8080/student/tharindu/perera
+    @GetMapping(path="/student/{firstName}/{lastName}")
+    public Student studentPathVariable(@PathVariable("firstName") String firstName,@PathVariable("lastName") String lastName){
+        return new Student(firstName,lastName);
+
+    }
+
 
 }
