@@ -1,7 +1,7 @@
 package com.studentManagementSystem.demo2.model;
-
 import jakarta.persistence.*;
 import lombok.Data;
+
 
 @Data
 @Entity
@@ -17,6 +17,7 @@ public class Employee {
     private String lastName;
     @Column(name = "email",nullable = false)
     private String email;
+
 
 
 }
