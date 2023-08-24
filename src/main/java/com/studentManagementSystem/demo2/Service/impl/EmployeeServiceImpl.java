@@ -39,4 +39,22 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new ResouceNotFoundException("Employee","id",id);
         }
     }
+
+    @Override
+    public Employee updateEmployee(Employee employee,long id){
+        Employee exisitingEmployee = employeeRepository.findById(id).orElseThrow(
+                ()-> new ResouceNotFoundException("Employee","Id",id));// lambda function ---instead of using if else statement we can use lambda function
+        exisitingEmployee.setFirstName(employee.getFirstName());
+        exisitingEmployee.setLastName(employee.getLastName());
+        exisitingEmployee.setEmail(employee.getEmail());
+        //save existing employee to the DB
+        employeeRepository.save(exisitingEmployee) ;
+        return exisitingEmployee;
+
+
+
+
+
+
+    }
 }
