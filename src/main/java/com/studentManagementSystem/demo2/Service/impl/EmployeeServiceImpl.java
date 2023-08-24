@@ -5,6 +5,8 @@ import com.studentManagementSystem.demo2.model.Employee;
 import com.studentManagementSystem.demo2.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
@@ -18,6 +20,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.save(employee);
 
 
+    }
+
+    @Override
+    public List<Employee> getAllEmployees(){
+        return employeeRepository.findAll();
     }
 
 
